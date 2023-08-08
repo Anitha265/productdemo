@@ -1,10 +1,7 @@
 package com.example.myapplication
 
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -29,11 +26,11 @@ class MainActivity : AppCompatActivity() {
 
        viewModel = ViewModelProviders.of(this).get(ProductViewModel::class.java)
         viewModel?.fetchUsers()
-        var layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+      //  var layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
 
         pAdapter = ProductListAdapter(this,productList)
        rec_view?.adapter = pAdapter
-        rec_view?.layoutManager = layoutManager
+      //  rec_view?.layoutManager = layoutManager
         observeViewModel()
     }
 
@@ -41,11 +38,12 @@ class MainActivity : AppCompatActivity() {
 
         viewModel?.products?.observe(this, Observer { products ->
 
-            products?.let {
-                rec_view?.visibility = View.VISIBLE
-                pAdapter?.updateProducts(it as ArrayList<Products>)
-            }
-            pAdapter?.notifyDataSetChanged()
+         //   products?.let {
+                var layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+                rec_view?.layoutManager = layoutManager
+                pAdapter = ProductListAdapter(this,products)
+                rec_view?.adapter = pAdapter
+                pAdapter?.notifyDataSetChanged()
         })
 
     }

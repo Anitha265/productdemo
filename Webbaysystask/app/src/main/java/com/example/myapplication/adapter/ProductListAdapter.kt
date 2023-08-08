@@ -12,10 +12,10 @@ import com.example.myapplication.R
 import com.example.myapplication.model.Products
 
 
-class ProductListAdapter(private val context: Context, var productList : ArrayList<Products>) : RecyclerView.Adapter<ProductListAdapter.ViewHolder>() {
+class ProductListAdapter(private val context: Context, var productList: List<Products>) : RecyclerView.Adapter<ProductListAdapter.ViewHolder>() {
     fun updateProducts(newProducts: List<Products>) {
-        productList.clear()
-        productList.addAll(newProducts)
+//        productList.clear()
+//        productList.addAll(newProducts)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

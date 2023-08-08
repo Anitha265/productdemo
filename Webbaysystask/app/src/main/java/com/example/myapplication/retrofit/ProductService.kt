@@ -15,7 +15,7 @@ interface ProductService{
 
  object NetworkModule {
 
-        var BASE_URL = "https://fakestoreapi.com/"
+        var BASE_URL = "https://fakestoreapi.com/products/"
 
         fun getProductService(): ProductService {
             return Retrofit.Builder()
