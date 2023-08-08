@@ -1,7 +1,7 @@
 package com.example.myapplication.retrofit
 
 import com.example.myapplication.model.Products
-import com.example.myapplication.model.Rating
+import okhttp3.OkHttpClient
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -18,6 +18,7 @@ interface ProductService{
         var BASE_URL = "https://fakestoreapi.com/products/"
 
         fun getProductService(): ProductService {
+
             return Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
